@@ -1,0 +1,9 @@
+{
+	"id": "launchpad",
+	"name": "Launchpad",
+	"version": "0.1.0",
+	"minAppVersion": "1.4.0",
+	"description": "A dashboard home tab with guided note capture, quick actions, and Eisenhower matrix todos.",
+	"author": "Justin",
+	"isDesktopOnly": false
+}
