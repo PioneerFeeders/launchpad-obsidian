@@ -1,97 +1,72 @@
 /* ============================================================
-   Launchpad — Global Styles
+   Launchpad — Google Keep-inspired global styles
    ============================================================ */
 
-/* --- Suggestion Container --- */
+/* Keep color palette (dark theme defaults) */
+:root {
+	--keep-red: #5c2b29;
+	--keep-red-light: #77172e;
+	--keep-orange: #614a19;
+	--keep-yellow: #635d19;
+	--keep-yellow-light: #7c6f1b;
+	--keep-green: #345920;
+	--keep-teal: #0c625d;
+	--keep-blue: #1e3a5f;
+	--keep-blue-light: #264d73;
+	--keep-purple: #42275e;
+	--keep-pink: #5b2245;
+	--keep-gray: #3c3f43;
+	--keep-gray-light: #525457;
+}
+
+/* Light theme overrides */
+.theme-light {
+	--keep-red: #f28b82;
+	--keep-red-light: #f28b82;
+	--keep-orange: #fbbc04;
+	--keep-yellow: #fff475;
+	--keep-yellow-light: #fff475;
+	--keep-green: #ccff90;
+	--keep-teal: #a7ffeb;
+	--keep-blue: #cbf0f8;
+	--keep-blue-light: #aecbfa;
+	--keep-purple: #d7aefb;
+	--keep-pink: #fdcfe8;
+	--keep-gray: #e8eaed;
+	--keep-gray-light: #e8eaed;
+}
+
+/* Suggestion container */
 .launchpad-suggestion-container {
-	width: 50%;
-	min-width: 250px;
-	max-width: 700px;
+	width: 100%;
+	max-width: 720px;
 	margin: 0 auto;
-	background: var(--background-modifier-form-field);
-	border: var(--input-border-width) solid var(--background-modifier-border);
-	border-top-color: var(--background-secondary);
-	border-radius: 0 0 var(--radius-l) var(--radius-l);
+	background: var(--background-secondary);
+	border-radius: 0 0 12px 12px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+	overflow: hidden;
 }
 
 .launchpad-suggestion-container.is-phone {
-	width: 90%;
+	width: 100%;
 }
 
-.launchpad-suggestion-container .suggestion {
-	flex: 1;
-	overflow-x: hidden;
+.launchpad-search-results-container {
+	max-height: 400px;
+	overflow-y: auto;
 }
 
-/* --- Suggestion Items --- */
-.home-tab-suggestion-description,
-.home-tab-suggestion-filepath,
-.home-tab-suggestion-tip {
+/* Accent for selection */
+.launchpad-suggestion-container .suggestion-item.is-selected {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+.launchpad-hotkey-suggestion {
 	display: flex;
 	align-items: center;
-	justify-content: left;
-	color: var(--text-faint);
-}
-
-.home-tab-suggestion-description,
-.home-tab-suggestion-tip {
-	font-size: var(--font-ui-small);
-}
-
-.home-tab-suggestion-filepath {
-	font-size: var(--font-ui-smaller);
-	margin-left: var(--size-4-3);
-}
-
-.home-tab-suggestion-title {
-	display: flex;
-	word-break: break-word;
-}
-
-.home-tab-suggestion-title.is-unresolved {
-	opacity: 0.4;
-}
-
-.home-tab-suggestion-file-tag {
-	min-width: fit-content;
-}
-
-/* Accent color selection highlight */
-.suggestion.use-accent-color .is-selected .home-tab-suggestion-title.is-unresolved {
-	color: var(--text-on-accent);
-	opacity: 0.6;
-}
-
-.suggestion.use-accent-color .is-selected {
-	background-color: var(--interactive-accent);
-}
-
-.suggestion.use-accent-color .is-selected,
-.suggestion.use-accent-color .is-selected .home-tab-suggestion-filepath,
-.suggestion.use-accent-color .is-selected .home-tab-suggestion-description,
-.suggestion.use-accent-color .is-selected .home-tab-suggestion-tip {
-	color: var(--text-on-accent);
-}
-
-/* --- Hotkey Suggestions --- */
-.suggester-additional-info {
-	border-top: 1px solid var(--background-secondary);
-	font-size: var(--font-ui-smaller);
+	gap: 8px;
+	padding: 8px 16px;
 	color: var(--text-muted);
-	padding: var(--size-4-2);
-	text-align: center;
-}
-
-.launchpad-hotkey-suggestions {
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	flex-wrap: wrap;
-}
-
-/* --- Active search bar state --- */
-.launchpad-searchbar.is-active {
-	border-bottom: none !important;
-	border-bottom-left-radius: 0 !important;
-	border-bottom-right-radius: 0 !important;
+	font-size: var(--font-ui-small);
 }
